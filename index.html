@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carte de visite Recto-Verso</title>
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #1f2937;
+        }
+
+       
+        .flip-card {
+            background-color: transparent;
+            width: 380px;
+            height: 220px;
+            perspective: 1000px; 
+            max-width: 100%;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s; 
+            transform-style: preserve-3d; 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        .flip-card-inner.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; 
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .card-front {
+            background-color: #ffffff;
+        }
+
+        .card-back {
+            background-color: #e0f2fe;
+            transform: rotateY(180deg); 
+            text-align: left;
+             align-items: center;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #3b82f6; 
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        h1, h2 {
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h1 { 
+            font-size: 1.6rem; 
+        }
+        h2 {
+            font-size: 1.2rem;
+             margin-top: 5px;
+
+            }
+
+        .title {
+            color: #6b7280;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .details-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        .details-list li {
+            margin-bottom: 5px;
+        }
+
+        .flip-button {
+            background-color: #1f2937;
+            color: white;
+            border: none;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .flip-button:hover {
+            background-color: #374151;
+        }
+
+        
+.links {
+    display: flex; 
+    justify-content: center; 
+    width: 100%; 
+}
+
+.social {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px; 
+    border-radius: 50%;
+    background-color: #333; 
+    color: white;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.social svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.social:hover, .social:active {
+    background-color: #007bff; 
+    transform: scale(1.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.github { background-color: #333; }
+.linkedin { background-color: #0077B5; }
+.twitter { background-color: #1DA1F2; }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="flip-card">
+            <div class="flip-card-inner" id="cardInner">
+
+                <div class="card-face card-front">
+                    <div class="avatar"><img src="https://images.unsplash.com/photo-1579403124614-197f69d8187b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRldmVsb3BwZW1lbnR8ZW58MHx8MHx8fDA%3D"></div>
+                    <h1>KOKODOKO KOFFI RAYMOND</h1>
+                    <p class="title">Développeur Web en Apprentissage</p>
+
+                    <button class="flip-button" onclick="flipCard()">
+                        Voir les Détails & Contact
+                    </button>
+                </div>
+
+                <div class="card-face card-back">
+                    
+                     <button class="flip-button" onclick="flipCard()">
+                        Retour au Profil
+                    </button>
+
+                    <h2>Ma Mission & Compétences</h2>
+                    <ul class="details-list">
+                        <li> <strong>Objectif :</strong> Maîtriser HTML, CSS et JavaScript pour des projets web modernes et accessibles.</li>
+                        <li> <strong>Compétences :</strong>
+                            <ul class="competences-list">
+                            
+    <li><strong>HTML</strong> (Maquettage sémantique)</li>
+    <li><strong>CSS</strong> (Stylisation Réactive, Responsive Design)</li>
+    <li><strong>JAVASCRIPT</strong> (Logique de base)</li>
+</ul></li>
+<li>
+    <strong>Email</strong> <a href="mailto:kokodokoraymond@gmail.com" style="color: #3b82f6; text-decoration: none;">kokodokoraymond@gmail.com</a>
+</li>
+                        </li>
+                    </ul>
+
+                     <nav class="links" aria-label="Liens sociaux">
+                        <a class="social github" href="https://github.com/RayTheBest08" target="_blank" rel="noopener noreferrer" aria-label="Voir mon profil GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 .5C5.73.5.75 5.48.75 11.74c0 4.9 3.18 9.06 7.59 10.53.56.1.77-.24.77-.54 0-.27-.01-1.16-.02-2.1-3.09.67-3.74-1.5-3.74-1.5-.5-1.27-1.22-1.61-1.22-1.61-.99-.68.08-.67.08-.67 1.09.08 1.66 1.12 1.66 1.12.97 1.66 2.55 1.18 3.17.9.1-.7.38-1.18.69-1.45-2.47-.28-5.06-1.24-5.06-5.5 0-1.21.43-2.2 1.13-2.98-.11-.28-.49-1.42.11-2.96 0 0 .92-.29 3.02 1.13.88-.25 1.82-.38 2.76-.38.94 0 1.88.13 2.76.38 2.1-1.42 3.02-1.13 3.02-1.13.6 1.54.22 2.68.11 2.96.7.78 1.13 1.77 1.13 2.98 0 4.27-2.6 5.22-5.08 5.5.39.34.73 1.02.73 2.06 0 1.49-.01 2.69-.01 3.06 0 .3.2.65.78.54C20.07 20.8 23.25 16.64 23.25 11.74 23.25 5.48 18.27.5 12 .5z"/>
+                            </svg>
+                        </a>
+
+                        <a class="social" href="https://www.linkedin.com/in/raymond-kokodoko-84a125359" target="_blank" rel="noopener noreferrer" aria-label="Voir mon profil LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8h4.52V24H.24zM8.75 8h4.34v2.19h.06c.6-1.14 2.06-2.34 4.24-2.34C23.07 7.86 24 10.14 24 13.62V24h-4.52v-9.06c0-2.19-.04-5-3.04-5-3.05 0-3.52 2.38-3.52 4.84V24H8.75z"/>
+                            </svg>
+                        </a>
+
+                        <a class="social" href="" target="_blank" rel="noopener noreferrer" aria-label="Voir mon profil Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.29 4.29 0 0 0 1.88-2.37 8.58 8.58 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.3 3.9A12.14 12.14 0 0 1 3.1 4.6a4.27 4.27 0 0 0 1.33 5.71c-.66-.02-1.28-.2-1.82-.5v.05c0 2.1 1.5 3.84 3.5 4.24-.36.1-.74.15-1.13.15-.28 0-.55-.03-.82-.08.55 1.72 2.15 2.98 4.05 3.02A8.6 8.6 0 0 1 2 19.54a12.14 12.14 0 0 0 6.56 1.92c7.87 0 12.18-6.52 12.18-12.18 0-.19 0-.37-.01-.56A8.7 8.7 0 0 0 22.46 6z"/>
+                            </svg>
+                        </a>
+                    </nav>
+
+
+                   
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Fonction JavaScript pour basculer la carte
+        function flipCard() {
+            const card = document.getElementById('cardInner');
+            card.classList.toggle('is-flipped');
+        }
+    </script>
+</body>
+</html>
